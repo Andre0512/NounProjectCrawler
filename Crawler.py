@@ -1,6 +1,7 @@
 import os
 import re
 import requests
+from tqdm import *
 
 
 def main():
@@ -15,7 +16,7 @@ def main():
 
     if not os.path.exists(path):
         os.makedirs(path)
-    for index, icon in enumerate(svg_list):
+    for index, icon in enumerate(tqdm(svg_list)):
         r = requests.get(icon[1], stream=True)
         with open('{0}/{1:03d}_{2}.svg'.format(path, index, icon[0]), 'wb') as fd:
             for chunk in r.iter_content(2048):
