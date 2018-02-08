@@ -1,15 +1,15 @@
 import os
 import re
 import requests
+import sys
 from tqdm import *
 
 
-def main():
-    download = 'star wars'
-    path = './download/{}'.format(download)
+def main(argv):
+    path = './download/{}'.format(argv[0])
 
     response = requests.get(
-        'https://thenounproject.com/search/json/icon/?q={}&page=1&limit=30&raw_html=false'.format(download)).text
+        'https://thenounproject.com/search/json/icon/?q={}&page=1&limit=30&raw_html=false'.format(argv[0])).text
     svg_list = re.findall(
         '"term_slug": "([^"]*)".*?"icon_url": "([^"]*)".*?"username": "[^"]*".*?"permalink": "([^"]*)"', response)
     author_list = []
@@ -31,4 +31,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1:])
