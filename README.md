@@ -12,13 +12,13 @@ But if you want download many icons e.g. to make your own font, it can be much c
 
 ### Usage
 1. Download script  
-`git clone https://github.com/Andre0512/NounProjectCrawler.git && cd NounProject`
+`git clone https://github.com/Andre0512/NounProjectCrawler.git && cd NounProjectCrawler/`
 2. Create a virtual environment (optional)  
-`python3 -m venv venv && source ./venv/bin/activate`  
+`python3 -m venv ./venv && source ./venv/bin/activate`  
 3. Install requirements  
-`pip3 install -r requirements.txt`
+`pip install -r requirements.txt`
 4. Run this script  
-`python3 Crawler.py 'YOUR SEARCH TERM'`
+`python Crawler.py 'YOUR SEARCH TERM'`
 5. Now you can find your icons in `./download/YOUR SEARCH TERM/`
 
 ### License  
