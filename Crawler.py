@@ -6,11 +6,11 @@ from tqdm import *
 
 
 def main(argv):
-    path = './download/{}'.format(argv[0])
-
+    path = './download/{}'.format(argv[-1])
+    limit = 100 if not argv[0] == '--nolimit' else 3999
     response = requests.get(
-        'https://thenounproject.com/search/json/icon/?q={}&page=1&limit=30&raw_html=false'.format(argv[0])).text
-    svg_list = re.findall(
+        'https://thenounproject.com/search/json/icon/?q={}&page=1&limit={}&raw_html=false'.format(argv[-1], limit)).text
+	    svg_list = re.findall(
         '"term_slug": "([^"]*)".*?"icon_url": "([^"]*)".*?"username": "[^"]*".*?"permalink": "([^"]*)"', response)
     author_list = []
 
